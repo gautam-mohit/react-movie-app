@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 import Movie from "./components/Movie";
+import Search from "./components/Search";
 
 const Featured_Api =
   "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
@@ -10,7 +11,6 @@ const Search_Api =
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const[searchTerm,setSearchTerm]= useState('');
 
   useEffect(() => {
     fetch(Featured_Api)
@@ -21,32 +21,19 @@ function App() {
       });
   }, []);
 
-  const handleonSubmit = (e) => {
-    e.preventDefault();
-
-
-    if(searchTerm){
-      fetch(Search_Api + searchTerm)
-      .then((res)=> res.json())
-      .then((data)=>{
+  const handleonSubmit = (searchTerm) => {
+    fetch(Search_Api + searchTerm)
+      .then((res) => res.json())
+      .then((data) => {
         setMovies(data.results);
       });
-      setSearchTerm("");
-    }
   };
-  
 
-  const handleonChange = (e) => {
-    setSearchTerm(e.target.value);
-  };
-   
+
   return (
     <>
-     <header>
-       <form onSubmit={handleonSubmit}>
-          <input className="search" type="search" placeholder="search" value={searchTerm} onChange={handleonChange} />
-       </form>
-        </header>
+      <Search onChange={handleonSubmit} />
+     
       <div className="movie-container">
         {movies.length > 0 &&
           movies.map((movie) => (
@@ -64,3 +51,4 @@ function App() {
 }
 
 export default App;
+//rafce -> react arrow function component react
