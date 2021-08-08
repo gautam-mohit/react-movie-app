@@ -22,7 +22,7 @@ function Search(props) {
         <input
           className="search"
           type="search"
-          placeholder="search"
+          placeholder="search for movie"
           value={searchTerm}
           onChange={handleonChange}
         />
@@ -32,5 +32,5 @@ function Search(props) {
 }
 
 export default Search;
-// dumb comp 
+// dumb comp
 //smart comp
