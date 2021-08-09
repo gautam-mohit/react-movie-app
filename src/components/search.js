@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Search(props) {
+  function Search(props) {
   const { onChange } = props;
   const [searchTerm, setSearchTerm] = useState("");
 

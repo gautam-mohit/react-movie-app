@@ -4,7 +4,7 @@ import Movie from "./components/Movie";
 import Search from "./components/Search";
 
 const Featured_Api =
-  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=1";
+  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=04c35731a5ee918f014970082a0088b1&page=15";
 const Img_Api = "https://image.tmdb.org/t/p/w1280";
 const Search_Api =
   "https://api.themoviedb.org/3/search/movie?&api_key=04c35731a5ee918f014970082a0088b1&query=";
@@ -29,11 +29,10 @@ function App() {
       });
   };
 
-
   return (
     <>
       <Search onChange={handleonSubmit} />
-     
+
       <div className="movie-container">
         {movies.length > 0 &&
           movies.map((movie) => (
